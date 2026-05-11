@@ -27,7 +27,7 @@ import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.genai.JsonSerializable;
 import java.util.Optional;
 
-/** Hyperparameters for distillation. */
+/** Hyperparameters for Distillation. This data type is not supported in Gemini API. */
 @AutoValue
 @InternalApi
 @JsonDeserialize(builder = DistillationHyperParameters.Builder.class)
@@ -47,16 +47,16 @@ public abstract class DistillationHyperParameters extends JsonSerializable {
   @JsonProperty("learningRateMultiplier")
   public abstract Optional<Double> learningRateMultiplier();
 
-  /**
-   * The batch size hyperparameter for tuning. This is only supported for OSS models in Gemini
-   * Enterprise Agent Platform.
-   */
+  /** Optional. Batch size for tuning. This feature is only available for open source models. */
   @JsonProperty("batchSize")
-  public abstract Optional<Integer> batchSize();
+  public abstract Optional<Long> batchSize();
 
-  /** The learning rate for tuning. OSS models only. */
+  /**
+   * Optional. Specifies the learning rate for tuning. Mutually exclusive with
+   * `learning_rate_multiplier`. This feature is only available for open source models.
+   */
   @JsonProperty("learningRate")
-  public abstract Optional<Float> learningRate();
+  public abstract Optional<Double> learningRate();
 
   /** Instantiates a builder for DistillationHyperParameters. */
   @ExcludeFromGeneratedCoverageReport
@@ -154,14 +154,14 @@ public abstract class DistillationHyperParameters extends JsonSerializable {
     /**
      * Setter for batchSize.
      *
-     * <p>batchSize: The batch size hyperparameter for tuning. This is only supported for OSS models
-     * in Gemini Enterprise Agent Platform.
+     * <p>batchSize: Optional. Batch size for tuning. This feature is only available for open source
+     * models.
      */
     @JsonProperty("batchSize")
-    public abstract Builder batchSize(Integer batchSize);
+    public abstract Builder batchSize(Long batchSize);
 
     @ExcludeFromGeneratedCoverageReport
-    abstract Builder batchSize(Optional<Integer> batchSize);
+    abstract Builder batchSize(Optional<Long> batchSize);
 
     /** Clears the value of batchSize field. */
     @ExcludeFromGeneratedCoverageReport
@@ -173,13 +173,14 @@ public abstract class DistillationHyperParameters extends JsonSerializable {
     /**
      * Setter for learningRate.
      *
-     * <p>learningRate: The learning rate for tuning. OSS models only.
+     * <p>learningRate: Optional. Specifies the learning rate for tuning. Mutually exclusive with
+     * `learning_rate_multiplier`. This feature is only available for open source models.
      */
     @JsonProperty("learningRate")
-    public abstract Builder learningRate(Float learningRate);
+    public abstract Builder learningRate(Double learningRate);
 
     @ExcludeFromGeneratedCoverageReport
-    abstract Builder learningRate(Optional<Float> learningRate);
+    abstract Builder learningRate(Optional<Double> learningRate);
 
     /** Clears the value of learningRate field. */
     @ExcludeFromGeneratedCoverageReport

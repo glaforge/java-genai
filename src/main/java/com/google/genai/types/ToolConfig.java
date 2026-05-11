@@ -43,8 +43,9 @@ public abstract class ToolConfig extends JsonSerializable {
   public abstract Optional<FunctionCallingConfig> functionCallingConfig();
 
   /**
-   * If true, the API response will include the server-side tool calls and responses within the
-   * `Content` message. This allows clients to observe the server's tool invocations.
+   * Optional. If true, the API response will include the server-side tool calls and responses
+   * within the `Content` message. This allows clients to observe the server's tool interactions.
+   * This field is not supported in Vertex AI.
    */
   @JsonProperty("includeServerSideToolInvocations")
   public abstract Optional<Boolean> includeServerSideToolInvocations();
@@ -127,9 +128,9 @@ public abstract class ToolConfig extends JsonSerializable {
     /**
      * Setter for includeServerSideToolInvocations.
      *
-     * <p>includeServerSideToolInvocations: If true, the API response will include the server-side
-     * tool calls and responses within the `Content` message. This allows clients to observe the
-     * server's tool invocations.
+     * <p>includeServerSideToolInvocations: Optional. If true, the API response will include the
+     * server-side tool calls and responses within the `Content` message. This allows clients to
+     * observe the server's tool interactions. This field is not supported in Vertex AI.
      */
     @JsonProperty("includeServerSideToolInvocations")
     public abstract Builder includeServerSideToolInvocations(

@@ -1594,18 +1594,18 @@ public final class Tunings {
           Common.getValueByPath(fromObject, new String[] {"veoTuningSpec"}));
     }
 
-    if (Common.getValueByPath(fromObject, new String[] {"distillationSamplingSpec"}) != null) {
-      Common.setValueByPath(
-          toObject,
-          new String[] {"distillationSamplingSpec"},
-          Common.getValueByPath(fromObject, new String[] {"distillationSamplingSpec"}));
-    }
-
     if (Common.getValueByPath(fromObject, new String[] {"tuningJobMetadata"}) != null) {
       Common.setValueByPath(
           toObject,
           new String[] {"tuningJobMetadata"},
           Common.getValueByPath(fromObject, new String[] {"tuningJobMetadata"}));
+    }
+
+    if (Common.getValueByPath(fromObject, new String[] {"veoLoraTuningSpec"}) != null) {
+      Common.setValueByPath(
+          toObject,
+          new String[] {"veoLoraTuningSpec"},
+          Common.getValueByPath(fromObject, new String[] {"veoLoraTuningSpec"}));
     }
 
     return toObject;
